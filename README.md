@@ -53,7 +53,7 @@ Also, the Magento XML sitemap usually contains all of your product, category, an
 This XML Sitemap Generator for Magento 2 enables you to exclude any product, category, CMS page, or blog page from your XML sitemap in just 1 click.
 
 <p align="center">
-  <img width="860" height="428" src="https://cm.magefan.com/mf_webp/png/media/catalog/Magento-google-xml-sitemap-requirements.webp">
+  <img width="860" height="428" src="[https://cm.magefan.com/mf_webp/png/media/catalog/Magento-google-xml-sitemap-requirements.webp](https://cm.magefan.com/mf_webp/png/media/catalog/exclude-images-from-xml-sitemap.webp)">
 </p>
 
 ## Demo
