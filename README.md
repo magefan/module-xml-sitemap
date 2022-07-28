@@ -7,18 +7,54 @@
 
 <img width="150" height="100" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
 
-<img align="right" width="120" height="120" src="https://cm.magefan.com/mf_webp/jpg/media/catalog/product/cache/103e1b2520de2a36a364b0391bff6bdc/i/c/icon-sitemap.webp">
+<img align="right" width="120" height="120" src="https://cm.magefan.com/catalog/product/cache/103e1b2520de2a36a364b0391bff6bdc/i/c/icon-sitemap-xml.jpg">
 
-[Magento 2 XML Sitemap Extension Free](https://magefan.com/magento-2-xml-sitemap-extension) is a solution that helps you to generate a unique XML sitemap for your store and gather all of your store pages links in one place. It improves website navigation and makes indexing faster and easier for the search engine robots.
+[Magento 2 XML Sitemap Extension Free](https://magefan.com/magento-2-xml-sitemap-extension) is a solution that allows you to improve website indexing and communicate your website structure to web crawlers easier. An XML sitemap helps to get new pages of your website discovered, indexed, and pulled out in search much faster. 
+
+Configure automatic XML sitemap generation, set frequency and priority, define XML sitemap file limit, and exclude paged from sitemap easier.
 
 
 <a href="https://magefan.com/magento-2-xml-sitemap-extension"><img width="190" height="70" src="https://magefan.com/media/wysiwyg/download-now_1.png"></a>
 
 ## Benefits
 
-* Faster website indexation
-* Improved store navigation
-* Better customer experience
+* Better website SEO profile
+* Faster website pages indexing
+* Automatic XML sitemap generation
+
+## Features
+
+There are a lot of things that influence your website SEO which can see as metadata, website content, keywords, etc. Still, one of the most important SEO-related features is always hidden.  
+
+### Faster Website Indexing
+
+Magento XML sitemap is a machine-readable file in an extensive markup language that is used by search crawlers to navigate your website. It also helps search robots to discover new and updated content so it could be displayed to searchers in search results. 
+
+With the Magento 2 XML Sitemap extension, you’ll be able to generate XML sitemap files manually or automatically and set up frequency and priority for link group indexing. This way all of the new pages you publish will appear in Google faster.
+
+<p align="center">
+  <img width="860" height="428" src="https://cm.magefan.com/mf_webp/png/media/catalog/magento-2-xml-sitemap-extension.webp">
+</p>
+
+### Automatic Sitemap Generation and Indexing 
+
+Search crawlers regularly scan and index your website to discover new content to publish in search. So you have to update your sitemap as often as you create a new product, category, or CMS page.  
+
+To avoid the hassle, you can enable automatic sitemap generation and configure how often and in what order should the link groups be indexed. It helps you to automate the process and make sure new convent is discovered regularly.
+
+<p align="center">
+  <img width="860" height="428" src="https://cm.magefan.com/mf_webp/png/media/catalog/magento-xml-sitemap-generation.webp">
+</p>
+
+### Exclude Pages from XML Sitemap
+
+Also, the Magento XML sitemap usually contains all of your product, category, and CMS page links so search robots can understand your website structure and page relations better. However, there might be pages that don’t have any SEO potential or value to customers, hence don’t have to be indexed. 
+
+This XML Sitemap Generator for Magento 2 enables you to exclude any product, category, CMS page, or blog page from your XML sitemap in just 1 click.
+
+<p align="center">
+  <img width="860" height="428" src="https://cm.magefan.com/mf_webp/png/media/catalog/Magento-google-xml-sitemap-requirements.webp">
+</p>
 
 ## Demo
 
@@ -78,6 +114,12 @@ The code is licensed under [EULA](https://magefan.com/end-user-license-agreement
 ## Documentation
 
 **General**
+* [How to install Magento 2 XML Sitemap Extension](https://magefan.com/magento-2-xml-sitemap-extension/installation)
+* [How to update Magento 2 XML Sitemap Extension](https://magefan.com/magento-2-xml-sitemap-extension/updating)
+* [How to uninstall Magento 2 XML Sitemap Extension](https://magefan.com/magento-2-xml-sitemap-extension/uninstalling)
+
+**Configuration**
+* [How to configure Magento 2 XML Sitemap?](https://magefan.com/blog/how-to-configure-magento-2-sitemap)
 
 
 ## [Magento 2 Extensions](https://magefan.com/magento-2-extensions) by Magefan
