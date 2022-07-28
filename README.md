@@ -24,7 +24,7 @@ Configure automatic XML sitemap generation, set frequency and priority, define X
 
 ## Features
 
-There are a lot of things that influence your website SEO which can see as metadata, website content, keywords, etc. Still, one of the most important SEO-related features is always hidden.  
+There are a lot of things that influence your website SEO which you can see as metadata, website content, keywords, etc. Still, the most important SEO-related features are always hidden.  
 
 ### Faster Website Indexing
 
@@ -50,7 +50,7 @@ To avoid the hassle, you can enable automatic sitemap generation and configure h
 
 Also, the Magento XML sitemap usually contains all of your product, category, and CMS page links so search robots can understand your website structure and page relations better. However, there might be pages that don’t have any SEO potential or value to customers, hence don’t have to be indexed. 
 
-This XML Sitemap Generator for Magento 2 enables you to exclude any product, category, CMS page, or blog page from your XML sitemap in just 1 click.
+This XML Sitemap Generator for Magento 2 enables you to exclude any product, category, CMS or blog pages from your XML sitemap in just 1 click.
 
 <p align="center">
   <img width="860" height="428" src="[https://cm.magefan.com/mf_webp/png/media/catalog/Magento-google-xml-sitemap-requirements.webp](https://cm.magefan.com/mf_webp/png/media/catalog/exclude-images-from-xml-sitemap.webp)">
