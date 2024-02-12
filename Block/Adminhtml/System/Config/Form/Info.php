@@ -14,13 +14,13 @@ namespace Magefan\XmlSitemap\Block\Adminhtml\System\Config\Form;
 class Info extends \Magefan\Community\Block\Adminhtml\System\Config\Form\Info
 {
     /**
-     * Return extension url
+     * Return extension URL
      *
      * @return string
      */
     protected function getModuleUrl()
     {
-        return 'https://mage' . 'fan.com';
+        return 'https://mage' . 'fan.com/magento-2-xml-sitemap-extension';
     }
 
     /**
