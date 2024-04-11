@@ -13,8 +13,12 @@
 
 Configure automatic XML sitemap generation, set frequency and priority, define XML sitemap file limit, and exclude paged from sitemap easier.
 
+<a href="https://magefan.com/magento-2-xml-sitemap-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a><a href="https://magefan.com/magento-2-xml-sitemap-extension#live-demo"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/magefan-live-demo.png"></a><a href="https://magefan.com/magento-2-seo-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/magefan-seo.png"></a>
 
-<a href="https://magefan.com/magento-2-xml-sitemap-extension"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a><a href="https://magefan.com/magento-2-xml-sitemap-extension#live-demo"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/magefan-live-demo.png"></a>
+## Requirements
+  * Magento Community 2.3.0-2.4.x (CE, EE, ECE, B2B)
+  * [Magefan Community Extension](https://github.com/magefan/module-community) >= v2.1.20. Please install this extension first if you use installation via FTP.
+  * **Note** that the extension is free only for the Magento Community (Open Source) Edition. For Magento EE, ECE, and B2B you need to purchase the license  at magefan.com.
 
 ## Benefits
 
@@ -53,7 +57,7 @@ Also, the Magento XML sitemap usually contains all of your product, category, an
 This XML Sitemap Generator for Magento 2 enables you to exclude any product, category, CMS or blog pages from your XML sitemap in just 1 click.
 
 <p align="center">
-  <img width="860" height="428" src="[https://cm.magefan.com/mf_webp/png/media/catalog/Magento-google-xml-sitemap-requirements.webp](https://cm.magefan.com/mf_webp/png/media/catalog/exclude-images-from-xml-sitemap.webp)">
+  <img width="860" height="428" src="https://cm.magefan.com/mf_webp/png/media/catalog/exclude-images-from-xml-sitemap.webp">
 </p>
 
 ## Demo
@@ -103,6 +107,11 @@ Try out our open demo and if you like our extension **please give us some star o
     </tr>
   </tbody>
 </table>
+
+## Support
+If you have any issues, please [contact us](mailto:support@magefan.com)
+then if you still need help, open a bug report in GitHub's
+[issue tracker](https://github.com/magefan/module-xml-sitemap/issues).
 
 ## Need More Features?
 Please contact us to get a quote
