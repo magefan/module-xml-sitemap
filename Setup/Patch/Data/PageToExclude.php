@@ -28,7 +28,6 @@ class PageToExclude implements DataPatchInterface, PatchRevertableInterface
 
     /**
      * @param ModuleDataSetupInterface $moduleDataSetup
-     * @param EavSetupFactory $eavSetupFactory
      * @param PageCollectionFactory $pageCollectionFactory
      */
     public function __construct(
