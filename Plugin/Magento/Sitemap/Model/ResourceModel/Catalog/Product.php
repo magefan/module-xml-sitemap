@@ -47,6 +47,14 @@ class Product
             $productCollection = $this->productCollectionFactory->create()
                 ->addFieldToFilter('mf_exclude_xml_sitemap',['eq' => 1]);
 
+            if ($this->config->getExcludeOutOfStock()) {
+                $productCollection->getSelect()->joinLeft(
+                    ['stock_status' => 'inventory_stock_1'],
+                    'e.entity_id = stock_status.product_id',
+                    []
+                )->orWhere('stock_status.is_salable = 0');
+            }
+
             if ($productCollection) {
                 $excludedIds = array_flip($productCollection->getAllIds());
 

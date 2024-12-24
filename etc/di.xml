@@ -21,4 +21,13 @@
     <type name="Magefan\Blog\Model\ResourceModel\Category\Collection">
         <plugin name="Magefan_XmlSitemap_Plugin_Magefan_Blog_Model_ResourceModel_Category_Collection" type="Magefan\XmlSitemap\Plugin\Magefan\Blog\Model\ResourceModel\Category\Collection" sortOrder="10" disabled="false"/>
     </type>
+
+    <type name="Magento\Sitemap\Model\ItemProvider\Composite">
+        <arguments>
+            <argument name="itemProviders" xsi:type="array">
+                <item name="mfXmlSitemapAdditionalLinks" xsi:type="object">Magefan\XmlSitemap\Model\ItemProvider\AdditionalLinks</item>
+            </argument>
+        </arguments>
+    </type>
+
 </config>
