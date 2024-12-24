@@ -76,7 +76,7 @@ class SitemapPlugin
     private function removeUrlsWithSpecificCharacters($xmlUrls, $sitemapPath) {
 
         foreach ($xmlUrls->url as $xmlUrl) {
-            if (preg_match('/[\?\&\=]/', (string)$xmlUrl->loc)) {
+            if (preg_match('/[?#<>@!&*()$%^\\+=,{}"\']/', (string)$xmlUrl->loc)) {
                 $dom = dom_import_simplexml($xmlUrl);
                 $dom->parentNode->removeChild($dom);
             }
