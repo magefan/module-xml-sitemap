@@ -77,7 +77,7 @@ class SitemapPlugin
 
         foreach ($xmlUrls->url as $xmlUrl) {
             if (preg_match('/[\?\&\=]/', (string)$xmlUrl->loc)) {
-                $dom = dom_import_simplexml($xmlUrl->loc);
+                $dom = dom_import_simplexml($xmlUrl);
                 $dom->parentNode->removeChild($dom);
             }
         }
