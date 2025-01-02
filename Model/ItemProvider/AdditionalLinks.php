@@ -50,7 +50,7 @@ class AdditionalLinks implements ItemProviderInterface
                     if (isset($link['url']) && isset($link['frequency'])) {
                         $items[] = $this->itemFactory->create([
                             'url' => $link['url'],
-                            'priority' => $key,
+                            'priority' => isset($link['priority']) ? $link['priority'] : 0,
                             'changeFrequency' => $link['frequency'],
                         ]);
                     }

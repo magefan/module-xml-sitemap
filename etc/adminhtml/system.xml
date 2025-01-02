@@ -35,22 +35,6 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
-            <group id="additional_links" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Additional Links</label>
-                <field id="enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
-                    <label>Add Additional Links</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>
-                <field id="links" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Links</label>
-                    <frontend_class>remove_label</frontend_class>
-                    <frontend_model>Magefan\XmlSitemap\Block\Adminhtml\System\Config\Form\DynamicRow</frontend_model>
-                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
-                    <depends>
-                        <field id="enabled">1</field>
-                    </depends>
-                </field>
-            </group>
             <group id="category" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Categories Options</label>
                 <field id="changefreq" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
@@ -108,7 +92,23 @@
                     <comment>Valid values range from 0.0 to 1.0.</comment>
                 </field>
             </group>
-            <group id="generate" translate="label" type="text" sortOrder="60" showInDefault="1">
+            <group id="additional_links" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Additional Links</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Add Additional Links</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="links" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Links</label>
+                    <frontend_class>remove_label</frontend_class>
+                    <frontend_model>Magefan\XmlSitemap\Block\Adminhtml\System\Config\Form\DynamicRow</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="generate" translate="label" type="text" sortOrder="70" showInDefault="1">
                 <label>Generation Settings</label>
                 <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
                     <label>Enabled</label>
@@ -156,7 +156,7 @@
                     </depends>
                 </field>
             </group>
-            <group id="limit" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="limit" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Sitemap File Limits</label>
                 <field id="max_lines" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
                     <label>Maximum No of URLs Per File</label>
@@ -170,7 +170,7 @@
                     <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
                 </field>
             </group>
-            <group id="search_engines" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="search_engines" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Search Engine Submission Settings</label>
                 <field id="submission_robots" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
                     <label>Enable Submission to Robots.txt</label>

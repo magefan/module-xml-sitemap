@@ -29,6 +29,10 @@ class DynamicRow extends AbstractFieldArray
             'label' => __('URL'),
             'class' => 'required-entry'
         ]);
+        $this->addColumn('priority', [
+            'label' => __('Priority'),
+            'class' => 'required-entry'
+        ]);
         $this->addColumn('frequency', [
             'label' => __('Frequency'),
             'class' => 'required-entry',
@@ -82,13 +86,28 @@ class DynamicRow extends AbstractFieldArray
                         \'jquery\',
                         \'Magento_Theme/js/sortable\'
                     ], function ($) {
-                        setTimeout(function () {
-                            $(\'#mfxmlsitemap_additional_links_links\').sortable({
+                        var element = $(\'#mfxmlsitemap_additional_links_links\');
+                        function applyChanges() {
+                            element.find(\'tbody\').find(\'tr\').each(function() {
+                                if (!$(this).find(\'.draggable-handle\').length) { 
+                                    var handle = $(\'<td><div class="draggable-handle" data-bind="afterRender: $data.initListeners"></div></td>\');
+                                    $(this).prepend(handle);
+                                }
+                            });
+                            element.find(\'tbody\').sortable({
                                 containment: "parent",
                                 items: \'tr\',
                                 tolerance: \'pointer\',
                             });
+                        }
+                        setTimeout(function () {
+                            element.find(\'tfoot\').find(\'.col-actions-add\').attr(\'colspan\', \'5\');
+                            element.find(\'thead\').find(\'tr\').prepend(\'<th></th>\');
+                            applyChanges();
                         }, 1000);
+                        $(\'.action-add\').on(\'click\', function() {
+                            applyChanges();
+                        });
                     });
                 });
             ';
