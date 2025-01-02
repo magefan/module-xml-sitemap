@@ -66,6 +66,11 @@ class DynamicRow extends AbstractFieldArray
         }
         return $this->frequencyRenderer;
     }
+    
+    /**
+     * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
+     * @return string
+     */
     protected function _getElementHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element)
     {
         $html = parent::_getElementHtml($element);
