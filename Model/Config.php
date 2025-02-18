@@ -10,6 +10,7 @@ namespace Magefan\XmlSitemap\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
+use Magento\Framework\Serialize\SerializerInterface;
 
 class Config
 {
@@ -19,17 +20,45 @@ class Config
     const XML_PATH_EXTENSION_ENABLED = 'mfxmlsitemap/general/enabled';
 
     /**
+     * Exclude out of stock config path
+     */
+    const XML_PATH_EXCLUDE_OUT_OF_STOCK = 'mfxmlsitemap/general/exclude_out_of_stock';
+
+    /**
+     * Disable urls with specific characters config path
+     */
+    const XML_PATH_DISABLE_URLS_WITH_SPECIFIC_CHARACTERS = 'mfxmlsitemap/general/disable_urls_with_specific_characters';
+
+    /**
+     * Additional links enabled config path
+     */
+    const XML_PATH_ADDITIONAL_LINKS_ENABLED = 'mfxmlsitemap/additional_links/enabled';
+
+    /**
+     * Additional links config path
+     */
+    const XML_PATH_ADDITIONAL_LINKS = 'mfxmlsitemap/additional_links/links';
+
+    /**
      * @var ScopeConfigInterface
      */
     protected $scopeConfig;
 
     /**
+     * @var SerializerInterface
+     */
+    private $serializer;
+
+    /**
      * Config constructor.
+     * @param SerializerInterface $serializer
      * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
+        SerializerInterface $serializer,
         ScopeConfigInterface $scopeConfig
     ) {
+        $this->serializer = $serializer;
         $this->scopeConfig = $scopeConfig;
     }
 
@@ -60,5 +89,61 @@ class Config
             self::XML_PATH_EXTENSION_ENABLED,
             $storeId
         );
+    }
+
+    /**
+     * @param $storeId
+     * @return bool
+     */
+    public function getExcludeOutOfStock($storeId = null): bool
+    {
+        return (bool)$this->getConfig(
+            self::XML_PATH_EXCLUDE_OUT_OF_STOCK,
+            $storeId
+        );
+    }
+
+    /**
+     * @param $storeId
+     * @return bool
+     */
+    public function getDisableUrlsWithSpecificCharacters($storeId = null): bool
+    {
+        return (bool)$this->getConfig(
+            self::XML_PATH_DISABLE_URLS_WITH_SPECIFIC_CHARACTERS,
+            $storeId
+        );
+    }
+
+    /**
+     * @param $storeId
+     * @return bool
+     */
+    public function isAdditionalLinksEnabled($storeId = null): bool
+    {
+        return (bool)$this->getConfig(
+            self::XML_PATH_ADDITIONAL_LINKS_ENABLED,
+            $storeId
+        );
+    }
+
+    /**
+     * @param $storeId
+     * @return array
+     */
+    public function getAdditionalLinks($storeId = null): array
+    {
+        $data = $this->getConfig(
+            self::XML_PATH_ADDITIONAL_LINKS,
+            $storeId);
+
+        $additionalLinks = [];
+        if ($data) {
+            $values = $this->serializer->unserialize($data);
+            foreach ($values as $item) {
+                $additionalLinks[] = $item;
+            }
+        }
+        return $additionalLinks;
     }
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * Please visit Magefan.com for license details (https://magefan.com/end-user-license-agreement).
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Sitemap\Model\Sitemap">
+        <plugin name="Magefan_XmlSitemap_Plugin_Magento_Sitemap_Model_SitemapPlugin" type="Magefan\XmlSitemap\Plugin\Magento\Sitemap\Model\SitemapPlugin" sortOrder="10" disabled="false"/>
+    </type>
+</config>
