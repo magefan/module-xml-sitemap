@@ -70,7 +70,7 @@ class DynamicRow extends AbstractFieldArray
         }
         return $this->frequencyRenderer;
     }
-    
+
     /**
      * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
      * @return string
@@ -97,9 +97,9 @@ class DynamicRow extends AbstractFieldArray
                             element.find(\'tbody\').sortable({
                                 containment: "parent",
                                 items: \'tr\',
-                                tolerance: \'pointer\',
+                                tolerance: \'pointer\'
                             });
-                        }
+                        };
                         setTimeout(function () {
                             element.find(\'tfoot\').find(\'.col-actions-add\').attr(\'colspan\', \'5\');
                             element.find(\'thead\').find(\'tr\').prepend(\'<th></th>\');

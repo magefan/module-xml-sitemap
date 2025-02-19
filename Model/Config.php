@@ -133,16 +133,11 @@ class Config
      */
     public function getAdditionalLinks($storeId = null): array
     {
-        $data = $this->getConfig(
-            self::XML_PATH_ADDITIONAL_LINKS,
-            $storeId);
-
-        $additionalLinks = [];
+        $data = $this->getConfig(self::XML_PATH_ADDITIONAL_LINKS, $storeId);
         if ($data) {
-            $values = $this->serializer->unserialize($data);
-            foreach ($values as $item) {
-                $additionalLinks[] = $item;
-            }
+            $additionalLinks = array_values($this->serializer->unserialize($data));
+        } else {
+            $additionalLinks = [];
         }
         return $additionalLinks;
     }
