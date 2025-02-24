@@ -11,13 +11,49 @@
             <general>
                 <enabled>0</enabled>
                 <mfmodule>XmlSitemap</mfmodule>
-                <mftype>1</mftype>
                 <exclude_out_of_stock>0</exclude_out_of_stock>
                 <disable_urls_with_specific_characters>0</disable_urls_with_specific_characters>
             </general>
+            <additional_links>
+                <enabled>0</enabled>
+            </additional_links>
+            <limit>
+                <max_lines>50000</max_lines>
+                <max_file_size>10485760</max_file_size>
+            </limit>
+            <page>
+                <priority>0.25</priority>
+                <changefreq>daily</changefreq>
+            </page>
+            <category>
+                <priority>0.5</priority>
+                <changefreq>daily</changefreq>
+            </category>
+            <product>
+                <priority>1</priority>
+                <changefreq>daily</changefreq>
+                <image_include>all</image_include>
+            </product>
+            <store>
+                <priority>1</priority>
+                <changefreq>daily</changefreq>
+            </store>
+            <generate>
+                <enabled>0</enabled>
+                <error_email />
+                <error_email_template>sitemap_generate_error_email_template</error_email_template>
+                <error_email_identity>general</error_email_identity>
+            </generate>
+            <search_engines>
+                <submission_robots>0</submission_robots>
+            </search_engines>
+            <file>
+                <valid_paths>
+                    <available>
+                        <any_path>/*/*.xml</any_path>
+                    </available>
+                </valid_paths>
+            </file>
         </mfxmlsitemap>
-        <additional_links>
-            <enabled>0</enabled>
-        </additional_links>
     </default>
 </config>

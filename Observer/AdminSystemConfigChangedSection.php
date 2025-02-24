@@ -18,11 +18,11 @@ use Magento\Config\Model\Config\Loader as ConfigLoader;
 use Magento\Framework\DB\TransactionFactory;
 use Magento\Config\Model\Config\Structure as ConfigStructure;
 use Magento\Config\Model\Config\Reader\Source\Deployed\SettingChecker;
-use Magento\Framework\App\ObjectManager;
 use Magento\Framework\App\Config\ValueFactory as ConfigValueFactory;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Config\Model\Config as MagentoConfig;
 use Magento\Framework\App\Config\ReinitableConfigInterface;
+use \Magento\Framework\App\RequestInterface;
 
 /**
  * Backend config model observer
@@ -32,10 +32,10 @@ use Magento\Framework\App\Config\ReinitableConfigInterface;
 class AdminSystemConfigChangedSection implements ObserverInterface
 {
     const SITEMAP_RELATION_ARRAY = [
-        'limit' => ['max_lines','max_file_size'],
-        'page' => ['priority','changefreq'],
+        'limit' => ['max_lines', 'max_file_size'],
+        'page' => ['priority', 'changefreq'],
         'category' => ['priority', 'changefreq'],
-        'product' => ['priority','changefreq', 'image_include'],
+        'product' => ['priority', 'changefreq', 'image_include'],
         'store' => ['priority', 'changefreq'],
         'generate' => ['enabled', 'error_email', 'error_email_template',
             'error_email_identity', 'time', 'frequency'],
@@ -113,7 +113,11 @@ class AdminSystemConfigChangedSection implements ObserverInterface
     private $scopeCode = null;
 
     /**
-     * AdminSystemConfigChangedSection constructor.
+     * @var RequestInterface
+     */
+    private $request;
+
+    /**
      * @param ScopeConfigInterface $scopeConfig
      * @param ConfigLoader $configLoader
      * @param TransactionFactory $transactionFactory
@@ -122,7 +126,8 @@ class AdminSystemConfigChangedSection implements ObserverInterface
      * @param StoreManagerInterface $storeManager
      * @param MagentoConfig $magentoConfig
      * @param ReinitableConfigInterface $appConfig
-     * @param SettingChecker|null $settingChecker
+     * @param SettingChecker $settingChecker
+     * @param RequestInterface $request
      */
     public function __construct(
         ScopeConfigInterface $scopeConfig,
@@ -133,7 +138,8 @@ class AdminSystemConfigChangedSection implements ObserverInterface
         StoreManagerInterface $storeManager,
         MagentoConfig $magentoConfig,
         ReinitableConfigInterface $appConfig,
-        SettingChecker $settingChecker = null
+        SettingChecker $settingChecker,
+        RequestInterface $request
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->configLoader = $configLoader;
@@ -143,7 +149,8 @@ class AdminSystemConfigChangedSection implements ObserverInterface
         $this->storeManager = $storeManager;
         $this->magentoConfig = $magentoConfig;
         $this->appConfig = $appConfig;
-        $this->settingChecker = $settingChecker ?: ObjectManager::getInstance()->get(SettingChecker::class);
+        $this->settingChecker = $settingChecker;
+        $this->request = $request;
     }
 
     /**
@@ -153,27 +160,41 @@ class AdminSystemConfigChangedSection implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
+        $sectionId = (string)$this->request->getParam('section');
+        if (!$sectionId) {
+            return;
+        }
+        $requestGroups = (array)$this->request->getParam('groups');
+        if (!$requestGroups) {
+            return;
+        }
+
         $this->store = $observer->getData('store') ?? null;
         $this->website = $observer->getData('website') ?? null;
 
         $this->initScope();
-
-        $groups = $this->scopeConfig->getValue('mfxmlsitemap', $this->scope, $this->scopeCode);
+        $groups = $this->scopeConfig->getValue($sectionId, $this->scope, $this->scopeCode);
 
         $sitemapGroup = [];
-
         foreach (self::SITEMAP_RELATION_ARRAY as $key => $fields) {
+            $values = [];
             if (isset($groups[$key])) {
-                foreach ($groups[$key] as $key2 => $value) {
-                    if (in_array($key2, $fields)) {
-                        $sitemapGroup[$key]['fields'][$key2] = ['value' => $value];
+                foreach ($groups[$key] as $field => $value) {
+
+                    if (in_array($field, $fields) && empty($requestGroups[$key]['fields'][$field]['inherit'])) {
+                        $values[$key . '_' . $field] = $value;
                     }
                 }
             }
+
+            foreach ($fields as $field) {
+                $sitemapGroup[$key]['fields'][$field] = isset($values[$key . '_' . $field])
+                    ? ['value' => $values[$key . '_' . $field]]
+                    : ['inherit' => true];
+            }
         }
 
-        $this->proceedTransaction($sitemapGroup, 'sitemap');
-
+        $this->proceedTransaction($sitemapGroup, ('mfxmlsitemap' === $sectionId) ? 'sitemap' : 'mfxmlsitemap');
     }
 
     /**
@@ -184,7 +205,7 @@ class AdminSystemConfigChangedSection implements ObserverInterface
     private function proceedTransaction($groups, $sectionId)
     {
         $oldConfig = $this->configLoader->getConfigByPath(
-            'mfxmlsitemap',
+            $sectionId,
             $this->scope,
             $this->scopeId,
             true
@@ -243,6 +264,7 @@ class AdminSystemConfigChangedSection implements ObserverInterface
     ) {
         $groupPath = $sectionPath . '/' . $groupId;
 
+
         if (isset($groupData['fields'])) {
             /** @var Group $group */
             $group = $this->configStructure->getElement($groupPath);
@@ -296,6 +318,7 @@ class AdminSystemConfigChangedSection implements ObserverInterface
                 $backendModel->setPath($path)->setValue($fieldData['value']);
 
                 $inherit = !empty($fieldData['inherit']);
+
                 if (isset($oldConfig[$path])) {
                     $backendModel->setConfigId($oldConfig[$path]['config_id']);
 

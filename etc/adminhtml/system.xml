@@ -14,10 +14,10 @@
             <resource>Magefan_XmlSitemap::config</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General</label>
+                <attribute type="expanded">1</attribute>
                 <field id="version" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <frontend_model>Magefan\XmlSitemap\Block\Adminhtml\System\Config\Form\Info</frontend_model>
                 </field>
-
                 <field id="enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Enable Extension</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -37,58 +37,53 @@
             </group>
             <group id="category" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Categories Options</label>
-                <field id="changefreq" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <field id="changefreq" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Frequency</label>
                     <source_model>Magento\Sitemap\Model\Config\Source\Frequency</source_model>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
                 </field>
-                <field id="priority" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <field id="priority" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Priority</label>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
+                    <backend_model>Magento\Sitemap\Model\Config\Backend\Priority</backend_model>
                     <comment>Valid values range from 0.0 to 1.0.</comment>
                 </field>
             </group>
             <group id="product" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Products Options</label>
-                <field id="changefreq" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <field id="changefreq" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Frequency</label>
                     <source_model>Magento\Sitemap\Model\Config\Source\Frequency</source_model>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
                 </field>
-                <field id="priority" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <field id="priority" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Priority</label>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
+                    <backend_model>Magento\Sitemap\Model\Config\Backend\Priority</backend_model>
                     <comment>Valid values range from 0.0 to 1.0.</comment>
                 </field>
-                <field id="image_include" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <field id="image_include" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Add Images into Sitemap</label>
                     <source_model>Magento\Sitemap\Model\Source\Product\Image\IncludeImage</source_model>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
                 </field>
             </group>
             <group id="page" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>CMS Pages Options</label>
-                <field id="changefreq" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <field id="changefreq" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Frequency</label>
                     <source_model>Magento\Sitemap\Model\Config\Source\Frequency</source_model>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
                 </field>
-                <field id="priority" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <field id="priority" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Priority</label>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
+                    <backend_model>Magento\Sitemap\Model\Config\Backend\Priority</backend_model>
                     <comment>Valid values range from 0.0 to 1.0.</comment>
                 </field>
             </group>
             <group id="store" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Store Url Options</label>
-                <field id="changefreq" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <field id="changefreq" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Frequency</label>
                     <source_model>Magento\Sitemap\Model\Config\Source\Frequency</source_model>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
                 </field>
-                <field id="priority" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <field id="priority" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Priority</label>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
+                    <backend_model>Magento\Sitemap\Model\Config\Backend\Priority</backend_model>
                     <comment>Valid values range from 0.0 to 1.0.</comment>
                 </field>
             </group>
@@ -110,32 +105,28 @@
             </group>
             <group id="generate" translate="label" type="text" sortOrder="70" showInDefault="1">
                 <label>Generation Settings</label>
-                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
                 </field>
                 <field id="error_email" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Error Email Recipient</label>
                     <validate>validate-email</validate>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
                 </field>
-                <field id="error_email_identity" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" >
+                <field id="error_email_identity" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" canRestore="1">
                     <label>Error Email Sender</label>
                     <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
                 </field>
-                <field id="error_email_template" translate="label comment" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" >
+                <field id="error_email_template" translate="label comment" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" canRestore="1">
                     <label>Error Email Template</label>
                     <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
                     <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
@@ -143,14 +134,13 @@
                 <field id="frequency" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Frequency</label>
                     <source_model>Magento\Cron\Model\Config\Source\Frequency</source_model>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
+                    <backend_model>Magento\Cron\Model\Config\Backend\Sitemap</backend_model>
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
                 </field>
                 <field id="time" translate="label" type="time" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Start Time</label>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
@@ -158,24 +148,22 @@
             </group>
             <group id="limit" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Sitemap File Limits</label>
-                <field id="max_lines" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <field id="max_lines" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Maximum No of URLs Per File</label>
                     <validate>validate-number validate-greater-than-zero</validate>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
                 </field>
-                <field id="max_file_size" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <field id="max_file_size" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Maximum File Size</label>
                     <comment>File size in bytes.</comment>
                     <validate>validate-number validate-greater-than-zero</validate>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
                 </field>
             </group>
             <group id="search_engines" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Search Engine Submission Settings</label>
-                <field id="submission_robots" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+                <field id="submission_robots" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Enable Submission to Robots.txt</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <backend_model>Magefan\XmlSitemap\Model\Config\Backend\XmlSiteMapSettings</backend_model>
+                    <backend_model>Magento\Sitemap\Model\Config\Backend\Robots</backend_model>
                 </field>
             </group>
         </section>

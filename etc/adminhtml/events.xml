@@ -9,4 +9,7 @@
     <event name="admin_system_config_changed_section_mfxmlsitemap">
         <observer name="mfXmlSitemapAdminSystemConfigChangedSection" instance="Magefan\XmlSitemap\Observer\AdminSystemConfigChangedSection" />
     </event>
+    <event name="admin_system_config_changed_section_sitemap">
+        <observer name="mfXmlSitemapAdminSystemConfigChangedSection" instance="Magefan\XmlSitemap\Observer\AdminSystemConfigChangedSection" />
+    </event>
 </config>

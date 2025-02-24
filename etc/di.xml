@@ -15,6 +15,9 @@
     <type name="Magento\Sitemap\Model\ResourceModel\Cms\Page">
         <plugin name="Magefan_XmlSitemap_Plugin_Magento_Sitemap_Model_ResourceModel_Cms_Page" type="Magefan\XmlSitemap\Plugin\Magento\Sitemap\Model\ResourceModel\Cms\Page" sortOrder="10" disabled="false"/>
     </type>
+    <type name="Magento\Email\Model\Template\Config">
+        <plugin name="Magefan_XmlSitemap_Plugin_Magento_Email_Model_Template_Config" type="Magefan\XmlSitemap\Plugin\Magento\Email\Model\Template\Config" sortOrder="10" disabled="false"/>
+    </type>
     <type name="Magefan\Blog\Model\ResourceModel\Post\Collection">
         <plugin name="Magefan_XmlSitemap_Plugin_Magefan_Blog_Model_ResourceModel_Post_Collection" type="Magefan\XmlSitemap\Plugin\Magefan\Blog\Model\ResourceModel\Post\Collection" sortOrder="10" disabled="false"/>
     </type>
@@ -29,5 +32,4 @@
             </argument>
         </arguments>
     </type>
-
 </config>
