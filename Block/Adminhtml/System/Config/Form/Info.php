@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace Magefan\XmlSitemap\Block\Adminhtml\System\Config\Form;
 
-
 /**
  * Admin configurations information block
  */
@@ -33,4 +32,3 @@ class Info extends \Magefan\Community\Block\Adminhtml\System\Config\Form\Info
         return 'XML Sitemap Extension';
     }
 }
-

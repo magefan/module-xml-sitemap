@@ -21,12 +21,12 @@ class Collection
      */
     public function __construct(
         Config $config
-    )
-    {
+    ) {
         $this->config = $config;
     }
 
-    public function beforeLoad($subject,$printQuery = false, $logQuery = false) {
+    public function beforeLoad($subject, $printQuery = false, $logQuery = false)
+    {
         if ($this->config->isEnabled()) {
             $backTrace = \Magento\Framework\Debug::backtrace(true, true, false);
 

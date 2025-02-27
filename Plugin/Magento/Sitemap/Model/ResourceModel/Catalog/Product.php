@@ -30,8 +30,7 @@ class Product
     public function __construct(
         ProductCollectionFactory $productCollectionFactory,
         Config $config
-    )
-    {
+    ) {
         $this->productCollectionFactory = $productCollectionFactory;
         $this->config = $config;
     }
@@ -41,11 +40,12 @@ class Product
      * @param array $result
      * @return array
      */
-    public function afterGetCollection(Subject $subject, array $result, $storeId): array {
+    public function afterGetCollection(Subject $subject, array $result, $storeId): array
+    {
 
         if ($result && $this->config->isEnabled()) {
             $productCollection = $this->productCollectionFactory->create()
-                ->addFieldToFilter('mf_exclude_xml_sitemap',['eq' => 1]);
+                ->addFieldToFilter('mf_exclude_xml_sitemap', ['eq' => 1]);
 
             if ($this->config->getExcludeOutOfStock()) {
                 $productCollection->getSelect()->joinLeft(

@@ -37,8 +37,7 @@ class Page
         PageRepositoryInterface $pageRepository,
         SearchCriteriaBuilder $searchCriteriaBuilder,
         Config $config
-    )
-    {
+    ) {
         $this->pageRepositoryInterface = $pageRepository;
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
         $this->config = $config;
@@ -49,8 +48,9 @@ class Page
      * @param array $result
      * @return array
      */
-    public function afterGetCollection(Subject $subject,array $result): array {
-        if($result && $this->config->isEnabled()) {
+    public function afterGetCollection(Subject $subject, array $result): array
+    {
+        if ($result && $this->config->isEnabled()) {
 
             $searchCriteria = $this->searchCriteriaBuilder->addFilter('mf_exclude_xml_sitemap', 1, 'eq')->create();
             $excludedPages = $this->pageRepositoryInterface->getList($searchCriteria)->getItems();

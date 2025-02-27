@@ -30,8 +30,7 @@ class Category
     public function __construct(
         CategoryCollectionFactory $categoryCollectionFactory,
         Config $config
-    )
-    {
+    ) {
         $this->categoryCollectionFactory = $categoryCollectionFactory;
         $this->config = $config;
     }
@@ -41,11 +40,12 @@ class Category
      * @param array $result
      * @return array
      */
-    public function afterGetCollection(Subject $subject,array $result): array {
+    public function afterGetCollection(Subject $subject, array $result): array
+    {
 
         if ($result && $this->config->isEnabled()) {
             $categoryCollection = $this->categoryCollectionFactory->create()
-                ->addFieldToFilter('mf_exclude_xml_sitemap',['eq' => 1]);
+                ->addFieldToFilter('mf_exclude_xml_sitemap', ['eq' => 1]);
 
             if ($categoryCollection) {
                 $excludedIds = array_flip($categoryCollection->getAllIds());
