@@ -25,11 +25,6 @@ class Config
     const XML_PATH_EXCLUDE_OUT_OF_STOCK = 'mfxmlsitemap/general/exclude_out_of_stock';
 
     /**
-     * Disable urls with specific characters config path
-     */
-    const XML_PATH_DISABLE_URLS_WITH_SPECIFIC_CHARACTERS = 'mfxmlsitemap/general/disable_urls_with_specific_characters';
-
-    /**
      * Additional links enabled config path
      */
     const XML_PATH_ADDITIONAL_LINKS_ENABLED = 'mfxmlsitemap/additional_links/enabled';
@@ -99,18 +94,6 @@ class Config
     {
         return (bool)$this->getConfig(
             self::XML_PATH_EXCLUDE_OUT_OF_STOCK,
-            $storeId
-        );
-    }
-
-    /**
-     * @param $storeId
-     * @return bool
-     */
-    public function getDisableUrlsWithSpecificCharacters($storeId = null): bool
-    {
-        return (bool)$this->getConfig(
-            self::XML_PATH_DISABLE_URLS_WITH_SPECIFIC_CHARACTERS,
             $storeId
         );
     }
