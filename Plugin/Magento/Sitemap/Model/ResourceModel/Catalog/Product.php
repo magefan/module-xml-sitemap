@@ -41,7 +41,7 @@ class Product
      * @param array $result
      * @return array
      */
-    public function afterGetCollection(Subject $subject,array $result): array {
+    public function afterGetCollection(Subject $subject, array $result, $storeId): array {
 
         if ($result && $this->config->isEnabled()) {
             $productCollection = $this->productCollectionFactory->create()
@@ -49,18 +49,30 @@ class Product
 
             if ($this->config->getExcludeOutOfStock()) {
                 $productCollection->getSelect()->joinLeft(
-                    ['stock_status' => 'inventory_stock_1'],
-                    'e.entity_id = stock_status.product_id',
+                    ['css' => $productCollection->getTable('cataloginventory_stock_item')],
+                    'e.entity_id = css.product_id',
                     []
-                )->orWhere('stock_status.is_salable = 0');
+                )->orWhere('css.is_in_stock = 0')
+                ->group('e.entity_id');
+
+                $connection = $productCollection->getConnection();
+                if ($connection->isTableExists('inventory_source_item')) {
+                    $productCollection->getSelect()->joinLeft(
+                        ['isi' => $productCollection->getTable('inventory_source_item')],
+                        'e.sku = isi.sku',
+                        []
+                    )->orWhere('isi.status = 0');
+                }
             }
 
             if ($productCollection) {
-                $excludedIds = array_flip($productCollection->getAllIds());
-
-                foreach ($result as $key => $item) {
-                    if (isset($excludedIds[(int)$item->getId()])) {
-                        unset($result[(int)$key]);
+                $excludedIds = $productCollection->getAllIds();
+                if ($excludedIds) {
+                    $excludedIds = array_flip($excludedIds);
+                    foreach ($result as $key => $item) {
+                        if (isset($excludedIds[(int)$item->getId()])) {
+                            unset($result[(int)$key]);
+                        }
                     }
                 }
             }

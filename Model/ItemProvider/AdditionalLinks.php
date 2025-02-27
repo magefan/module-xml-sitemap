@@ -46,9 +46,9 @@ class AdditionalLinks implements ItemProviderInterface
         $items = [];
         if ($this->config->isEnabled($storeId) && $this->config->isAdditionalLinksEnabled($storeId)) {
             foreach ($this->config->getAdditionalLinks($storeId) as $key => $link) {
-                if (isset($link['url']) && isset($link['frequency'])) {
+                if (isset($link['path']) && isset($link['frequency'])) {
                     $items[] = $this->itemFactory->create([
-                        'url' => $link['url'],
+                        'url' => $link['path'],
                         'priority' => isset($link['priority']) ? $link['priority'] : 0.5,
                         'changeFrequency' => $link['frequency'],
                     ]);

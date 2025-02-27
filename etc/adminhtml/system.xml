@@ -89,14 +89,14 @@
             </group>
             <group id="additional_links" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Additional Links</label>
-                <field id="enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                <field id="enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Add Additional Links</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="links" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="links" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Links</label>
                     <frontend_class>remove_label</frontend_class>
-                    <frontend_model>Magefan\XmlSitemap\Block\Adminhtml\System\Config\Form\DynamicRow</frontend_model>
+                    <frontend_model>Magefan\XmlSitemap\Block\Adminhtml\System\Config\Form\AdditionalLinksDynamicRow</frontend_model>
                     <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
                     <depends>
                         <field id="enabled">1</field>

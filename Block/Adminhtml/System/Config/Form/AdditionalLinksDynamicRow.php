@@ -9,10 +9,8 @@ namespace Magefan\XmlSitemap\Block\Adminhtml\System\Config\Form;
 use Magento\Config\Block\System\Config\Form\Field\FieldArray\AbstractFieldArray;
 use Magefan\XmlSitemap\Block\Adminhtml\System\Config\Form\Field\FrequencyColumn;
 use Magento\Framework\DataObject;
-/**
- * Class DynamicRow
- */
-class DynamicRow extends AbstractFieldArray
+
+class AdditionalLinksDynamicRow extends AbstractFieldArray
 {
     /**
      * @var FrequencyColumn
@@ -24,9 +22,9 @@ class DynamicRow extends AbstractFieldArray
      */
     protected function _prepareToRender()
     {
-        $this->addColumn('url', [
+        $this->addColumn('path', [
             'style' => 'width:170px',
-            'label' => __('URL'),
+            'label' => __('Path'),
             'class' => 'required-entry'
         ]);
         $this->addColumn('priority', [
@@ -89,7 +87,7 @@ class DynamicRow extends AbstractFieldArray
                         var element = $(\'#mfxmlsitemap_additional_links_links\');
                         function applyChanges() {
                             element.find(\'tbody\').find(\'tr\').each(function() {
-                                if (!$(this).find(\'.draggable-handle\').length) { 
+                                if (!$(this).find(\'.draggable-handle\').length) {
                                     var handle = $(\'<td><div class="draggable-handle" data-bind="afterRender: $data.initListeners"></div></td>\');
                                     $(this).prepend(handle);
                                 }
