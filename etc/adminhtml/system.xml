@@ -26,7 +26,7 @@
                     <label>Product Key</label>
                     <frontend_model>Magefan\Community\Block\Adminhtml\System\Config\Form\ProductKeyField</frontend_model>
                 </field>
-                <field id="exclude_out_of_stock" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                <field id="exclude_out_of_stock" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
                     <label>Exclude Out-Of-Stock Products From The XML Sitemap</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
