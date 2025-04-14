@@ -5,7 +5,7 @@
 
 <img align="right" width="120" height="120" src="https://cm.magefan.com/catalog/product/cache/103e1b2520de2a36a364b0391bff6bdc/i/c/icon-sitemap-xml.jpg">
 
-[Magento 2 XML Sitemap Extension Free](https://magefan.com/magento-2-xml-sitemap-extension) is a solution that allows you to improve website indexing and communicate your website structure to web crawlers. It allows you to create an advanced XML sitemap to get your pages discovered, indexed, and pulled out in search much faster.
+[Magento 2 XML Sitemap Extension](https://magefan.com/magento-2-xml-sitemap-extension) is a solution that allows you to improve website indexing and communicate your website structure to web crawlers. It allows you to create an advanced XML sitemap to get your pages discovered, indexed, and pulled out in search much faster.
 
 Configure automatic XML sitemap generation, set frequency and priority, define XML sitemap file limit, and exclude pages from sitemap in a few clicks.
 
