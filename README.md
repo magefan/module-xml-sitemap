@@ -24,9 +24,14 @@ Configure automatic XML sitemap generation, set frequency and priority, define X
 
 ## Benefits
 
-* Better website SEO profile
-* Faster website pages indexing
-* Automatic XML sitemap generation
+* [Index Your Website Faster](https://github.com/magefan/module-xml-sitemap#index-your-website-faster)
+* [Generate XML Sitemap Automatically](https://github.com/magefan/module-xml-sitemap#generate-xml-sitemap-automatically)
+* [Set Indexing Frequency and Priority](https://github.com/magefan/module-xml-sitemap#set-indexing-frequency-and-priority)
+* [Exclude Pages from XML Sitemap](https://github.com/magefan/module-xml-sitemap#exclude-pages-from-xml-sitemap)
+* [Add Custom Links to the Sitemap](https://github.com/magefan/module-xml-sitemap#add-custom-links-to-the-sitemap)
+* [Include Product Images in the Sitemap](https://github.com/magefan/module-xml-sitemap#include-product-images-in-the-sitemap)
+* [Keep Up With Google’s Requirements](https://github.com/magefan/module-xml-sitemap#keep-up-with-googles-requirements)
+
 
 ## Features
 
