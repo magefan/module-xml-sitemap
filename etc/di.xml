@@ -32,4 +32,12 @@
             </argument>
         </arguments>
     </type>
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="Magefan_XmlSitemap_Generate" xsi:type="object">Magefan\XmlSitemap\Console\Command\Generate</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
