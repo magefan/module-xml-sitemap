@@ -73,7 +73,7 @@ class Config
     }
 
     /**
-     * Retrieve true if blog module is enabled
+     * Retrieve true if module is enabled
      *
      * @param null $storeId
      * @return bool
