@@ -2,10 +2,10 @@
   "name": "magefan/module-xml-sitemap",
   "description": "Magefan XML Sitemap for Magento 2",
   "require": {
-    "magefan/module-community" : ">=2.2.7"
+    "magefan/module-community" : ">=2.2.15"
   },
   "type": "magento2-module",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "autoload": {
     "files": [
       "registration.php"
