@@ -38,12 +38,13 @@ class Category
     /**
      * @param Subject $subject
      * @param array $result
+     * @param int|string $storeId
      * @return array
      */
-    public function afterGetCollection(Subject $subject, array $result): array
+    public function afterGetCollection(Subject $subject, array $result, $storeId): array
     {
 
-        if ($result && $this->config->isEnabled()) {
+        if ($result && $this->config->isEnabled($storeId)) {
             $categoryCollection = $this->categoryCollectionFactory->create()
                 ->addFieldToFilter('mf_exclude_xml_sitemap', ['eq' => 1]);
 

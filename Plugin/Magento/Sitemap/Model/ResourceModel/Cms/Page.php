@@ -46,11 +46,12 @@ class Page
     /**
      * @param Subject $subject
      * @param array $result
+     * @param int|string $storeId
      * @return array
      */
-    public function afterGetCollection(Subject $subject, array $result): array
+    public function afterGetCollection(Subject $subject, array $result, $storeId): array
     {
-        if ($result && $this->config->isEnabled()) {
+        if ($result && $this->config->isEnabled($storeId)) {
 
             $searchCriteria = $this->searchCriteriaBuilder->addFilter('mf_exclude_xml_sitemap', 1, 'eq')->create();
             $excludedPages = $this->pageRepositoryInterface->getList($searchCriteria)->getItems();
