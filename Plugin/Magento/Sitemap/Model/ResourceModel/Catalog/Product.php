@@ -38,16 +38,17 @@ class Product
     /**
      * @param Subject $subject
      * @param array $result
+     * @param int|string $storeId
      * @return array
      */
     public function afterGetCollection(Subject $subject, array $result, $storeId): array
     {
 
-        if ($result && $this->config->isEnabled()) {
+        if ($result && $this->config->isEnabled($storeId)) {
             $productCollection = $this->productCollectionFactory->create()
                 ->addFieldToFilter('mf_exclude_xml_sitemap', ['eq' => 1]);
 
-            if ($this->config->getExcludeOutOfStock()) {
+            if ($this->config->getExcludeOutOfStock($storeId)) {
                 $productCollection->getSelect()->joinLeft(
                     ['css' => $productCollection->getTable('cataloginventory_stock_item')],
                     'e.entity_id = css.product_id',
