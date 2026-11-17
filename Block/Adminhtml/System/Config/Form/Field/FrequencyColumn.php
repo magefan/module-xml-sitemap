@@ -14,6 +14,11 @@ use Magento\Backend\Block\Template\Context;
 
 class FrequencyColumn extends Select
 {
+    /**
+     * @var \Magento\Sitemap\Model\Config\Source\Frequency
+     */
+    protected $_frequency;
+
     public function __construct(
         \Magento\Sitemap\Model\Config\Source\Frequency $frequency,
         Context $context,
