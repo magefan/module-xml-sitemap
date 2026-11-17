@@ -78,6 +78,7 @@ class AddMfExcludeXmlSitemapProductAttribute implements DataPatchInterface, Patc
         );
 
         $this->moduleDataSetup->getConnection()->endSetup();
+        return $this;
     }
 
     public function revert()

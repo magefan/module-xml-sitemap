@@ -54,6 +54,7 @@ class PageToExclude implements DataPatchInterface, PatchRevertableInterface
         );
 
         $this->moduleDataSetup->getConnection()->endSetup();
+        return $this;
     }
 
     /**
